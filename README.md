@@ -1,4 +1,4 @@
-# Symfony2 Development Server
+# Storage Server
 
 This makefile created for Debian 6.0 Squeeze.
 
@@ -7,6 +7,6 @@ This makefile created for Debian 6.0 Squeeze.
 Run these commands under root:
 
     aptitude install -y git make
-    git clone -b symfony https://github.com/rithis/setup-scripts.git
+    git clone -b storage https://github.com/rithis/setup-scripts.git
     cd setup-scripts
     make

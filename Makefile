@@ -1,5 +1,5 @@
 all: root-test vyacheslav dotdeb upgrade-packages install-packages \
-	mysql-config php-config nginx-config www-root
+	nginx-config www-root
 
 root-test:
 	@if test `whoami` != "root"; then echo "You must be root"; exit 1; fi
@@ -32,19 +32,7 @@ upgrade-packages:
 	aptitude upgrade -y
 
 install-packages:
-	aptitude install -y nginx php5-apc php5-cli php5-curl php5-fpm php5-gd \
-		php5-geoip php5-imagick php5-intl php5-mcrypt php5-memcache \
-		php5-memcached php5-mysql php5-pinba php5-sqlite php5-xhprof \
-		mysql-server pinba-mysql-5.5
-
-mysql-config:
-
-php-config:
-	cp configs/00-php.ini /etc/php5/conf.d
-	cp configs/pinba.ini /etc/php5/mods-available
-	rm -r /etc/php5/fpm/pool.d
-	cp configs/php-fpm.conf /etc/php5/fpm
-	service php5-fpm restart
+	aptitude install -y nginx
 
 nginx-config:
 	rm -r /etc/nginx
