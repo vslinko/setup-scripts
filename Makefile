@@ -40,7 +40,8 @@ nginx-config:
 	service nginx restart
 
 www-root:
-	mkdir -p /var/www/.ssh
+        mkdir -p /var/www/rithis.com
+	mkdir /var/www/.ssh
 	cp configs/authorized_keys /var/www/.ssh
 	chown www-data:www-data -R /var/www
 	chmod 400 /var/www/.ssh/authorized_keys
