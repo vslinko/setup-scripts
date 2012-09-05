@@ -41,10 +41,7 @@ nginx-config:
 
 www-root:
 	mkdir -p /var/www/.ssh
-	ssh-keygen -q -N "" -C www-data@`hostname` -f /var/www/.ssh/id_rsa
 	cp configs/authorized_keys /var/www/.ssh
-	ssh-keyscan -t rsa github.com > /var/www/.ssh/known_hosts
 	chown www-data:www-data -R /var/www
 	chmod 400 /var/www/.ssh/authorized_keys
 	chmod 700 /var/www/.ssh
-	@echo "\n\nUpload this key to https://github.com/settings/ssh" && cat /var/www/.ssh/id_rsa.pub && echo "\n\n"
